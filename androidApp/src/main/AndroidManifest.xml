@@ -9,6 +9,7 @@
         android:name=".FakeStoreApp"
         android:allowBackup="false"
         android:supportsRtl="true"
+        android:label="Muslim Scientists"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"

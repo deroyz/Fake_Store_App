@@ -1,54 +1,57 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-kapt")
 }
 
 android {
     compileSdk = 32
     defaultConfig {
         applicationId = "com.example.android.fakestoreapp.android"
-        minSdk = 21
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
+        versionCode = App.versionCode
+        versionName = App.versionName
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
-
+    buildFeatures {
+        viewBinding = true
+    }
     buildFeatures {
         compose = true
     }
-
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-alpha07"
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 }
 
 dependencies {
     implementation(project(":shared"))
 
-    implementation(Compose.activity)
-    implementation(Compose.compiler)
-    implementation(Compose.material)
-    implementation(Compose.navigation)
-    implementation(Compose.runtime)
-    implementation(Compose.constraintLayout)
-    implementation(Compose.ui)
-    implementation(Compose.uiTooling)
-    implementation(Compose.foundation)
+    implementation(SupportLibraries.material)
 
-    implementation(SplashScreen.splashScreen)
-    implementation(Shimmer.shimmer)
-    implementation(Accompanist.systemUIController)
+    implementation(Libraries.coroutinesAndroid)
+    implementation(Libraries.koinCore)
+    implementation(Libraries.koinAndroid)
+    implementation(Libraries.ktorCore)
+    implementation(Libraries.ktorSerialization)
+    implementation(Libraries.ktorAndroid)
 
-    implementation(Koin.koinAndroid)
-
-    implementation(Coil.coil)
-
-    implementation(ComposeDestination.composeDestination)
-    implementation(ComposeDestination.core)
-    implementation(ComposeDestination.composeDestination)
+    implementation(Libraries.Compose.ui)
+    implementation(Libraries.Compose.material)
+    implementation(Libraries.Compose.uiToolingPreview)
+    implementation(Libraries.Compose.coil)
+    implementation(Libraries.Compose.activity)
+    implementation(Libraries.Compose.navigation)
 }

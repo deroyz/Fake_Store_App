@@ -5,9 +5,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Kotlin.kotlin)
-        classpath("com.android.tools.build:gradle:7.1.3")
-        classpath(Realm.plugin)
+        classpath(Libraries.kotlin)
+        classpath(Libraries.kotlinSerialization)
+        classpath(Libraries.gradle)
+        classpath(Libraries.realmClasspath)
+//        classpath(Libraries.sqlDelight)
     }
 }
 

@@ -38,11 +38,6 @@ fun FakeStoreAppTheme(
     }
     val systemUIController = rememberSystemUiController()
 
-    SideEffect {
-        systemUIController.setSystemBarsColor(
-            if (darkTheme) Color.Black else Color.Black
-        )
-    }
 
     MaterialTheme(
         colors = LightThemeColors,
