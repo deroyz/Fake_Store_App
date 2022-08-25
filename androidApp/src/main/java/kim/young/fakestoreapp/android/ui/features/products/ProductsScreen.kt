@@ -31,7 +31,7 @@ fun ProductsScreen(
         TopAppBar(
         title = { Text(text = "Fake Store App") }
     )
-        Log.e("ProductsScreen", "")
+        Log.e("ProductsScreen", "${vm}")
 
         ManagementResourceState(
             resourceState = state.products,

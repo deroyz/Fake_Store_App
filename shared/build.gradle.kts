@@ -31,14 +31,15 @@ kotlin {
             dependencies {
                 implementation(Libraries.ktorCore)
                 implementation(Libraries.ktorSerialization)
-//                implementation(Libraries.Common.sqlDelight)
-//                implementation(Libraries.Common.sqlDelightExtension)
+
                 implementation(Libraries.Common.kotlinxSerializationCore)
                 implementation(Libraries.Common.kotlinxCoroutinesCore)
                 implementation(Libraries.koinCore)
                 implementation(Libraries.realm)
                 implementation("io.github.aakira:napier:2.6.1")
 
+//                implementation(Libraries.Common.sqlDelight)
+//                implementation(Libraries.Common.sqlDelightExtension)
             }
         }
         val commonTest by getting {
@@ -51,6 +52,7 @@ kotlin {
             dependencies {
                 implementation(Libraries.Android.sqlDelight)
                 implementation(Libraries.ktorAndroid)
+                implementation(Libraries.koinAndroid)
                 implementation(Libraries.coroutinesAndroid)
             }
         }

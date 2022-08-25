@@ -4,11 +4,6 @@ import kim.young.fakestoreapp.shared.data.local.ProductDatabaseModel
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ProductApiResponse(
-    val results: List<ProductNetworkModel>
-)
-
-@Serializable
 data class ProductNetworkModel(
     val id: Long,
     val title: String,

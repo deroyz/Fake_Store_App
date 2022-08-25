@@ -28,13 +28,13 @@ fun Navigation(
             ProductsScreen(navController = navController, vm = vmProducts)
         }
 
-        composable(DestinationScreen.Detail.route) {
-            val productData =
-                navController.previousBackStackEntry?.arguments?.getParcelable<ProductDomainModel>("product")
-            productData?.let{
-                DetailScreen(navController = navController, product = productData)
-            }
-        }
+//        composable(DestinationScreen.Detail.route) {
+//            val productData =
+//                navController.previousBackStackEntry?.arguments?.getParcelable<ProductDomainModel>("product")
+//            productData?.let{
+//                DetailScreen(navController = navController, product = productData)
+//            }
+//        }
 
     }
 

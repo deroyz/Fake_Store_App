@@ -13,10 +13,9 @@ interface AbstractRealmService {
     fun insertProductList(products: List<ProductDatabaseModel>)
 }
 
-class RealmService(private val realm: Realm) : AbstractRealmService {
+class RealmServiceImpl(private val realm: Realm) : AbstractRealmService {
 
     override fun getAllProducts() = realm.query<ProductDatabaseModel>().find().asFlow()
-
 
     override fun insertProductList(products: List<ProductDatabaseModel>) {
         CoroutineScope(Dispatchers.Default).async {

@@ -1,5 +1,6 @@
 package kim.young.fakestoreapp.shared.data.repository
 
+import io.github.aakira.napier.Napier
 import kim.young.fakestoreapp.shared.data.local.AbstractRealmService
 import kim.young.fakestoreapp.shared.data.local.asDomainModel
 import kim.young.fakestoreapp.shared.data.remote.AbstractApiService
@@ -13,14 +14,16 @@ abstract class AbstractRepository {
     abstract fun getAllProductsFromRealm(): Flow<List<ProductDomainModel>>
 }
 
-class Repository(
+class RepositoryImpl(
     private val ApiService: AbstractApiService,
     private val RealmService: AbstractRealmService
 ) : AbstractRepository() {
 
     override suspend fun cacheProductListFromApi() {
-        val products = ApiService.getProductsFromApi().results.asDatabaseModel()
+        val products = ApiService.getProductsFromApi().asDatabaseModel()
         RealmService.insertProductList(products)
+        Napier.e{"hi2"}
+
     }
 
     override fun getAllProductsFromRealm(): Flow<List<ProductDomainModel>> {
