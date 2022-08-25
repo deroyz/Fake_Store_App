@@ -37,6 +37,8 @@ kotlin {
                 implementation(Libraries.Common.kotlinxCoroutinesCore)
                 implementation(Libraries.koinCore)
                 implementation(Libraries.realm)
+                implementation("io.github.aakira:napier:2.6.1")
+
             }
         }
         val commonTest by getting {
@@ -91,6 +93,9 @@ android {
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
     }
+}
+dependencies {
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 }
 
 //sqldelight {
